@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/mystyle.css"/> 
+        <f:metadata>
+            <f:event listener="#{loginBean.verifyAssessor()}" type="preRenderView" >
+            </f:event>
+        </f:metadata>
+     </h:head>
+    <h:body>
+     
+      <nav id="mainNav" class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3 style="font-weight: bolder; color: white">E-Exam</h3>
+                    <h:form>
+                        <p:commandLink   style="font-weight: bolder; color: white" value="home" action="assessor_dashboard?faces-redirect=true"/>
+                    </h:form>
+                    <h3 style="font-weight: bolder; color: white" align="center">Assessor Dashboard</h3>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container-fluid">   
+            <div class="row">
+                <h:form>
+                    <div class="pull-right">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <h4>Logged in as</h4>
+                            </li>
+                            <li>
+                                <p:outputLabel value="#{loginBean.userId}"></p:outputLabel>
+                            </li>
+                            <li>
+                                <p:commandButton   style="font-weight: bolder; color: white" value="logout" action="#{loginBean.logout()}"/> 
+                            </li>
+                        </ul>
+                    </div>
+                    </h:form>
+            </div>
+            
+               
+                <div class="row" style="margin-top: 50px">
+                    <div class="col-md-offset-3">
+                        <ul class="list-inline">
+                            <li style="margin-right: 300px;"> 
+                        <p><img src="images/logo/create_exam.jpg" height="150px" width="150px"><span></span></img></p>  
+                        <p:commandLink id="add"  value="create exam" action="create_exam?faces-redirect=true" style=" font-size: 14px; font-weight: bold; color: black"/>
+                            </li>
+                    
+                            <li> <p><img src="images/logo/proctor_to_examtaker.jpg" height="150px" width="150px"><span></span></img></p>  
+                        <p:commandLink id="bio"  value="Assign Examtaker to Proctor" action="#" style=" font-size: 14px; font-weight: bold; color: black"/>
+                            </li>
+                        </ul>
+                    </div>
+               </div>
+        </div>
+    </h:body>
+</html>
+

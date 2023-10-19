@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/mystyle.css"/> 
+        
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/easyrtc/easyrtc.css" /> 
+        <!--hide-->
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/demos/css/landing.css" />
+
+
+        <!-- Prettify Code -->
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/prettify/loadAndFilter.js"></script>
+      <!--  <script type="text/javascript" src="http://localhost:9090/demos/js/prettify/jquery.min.js"></script>-->
+
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/demos/js/prettify/prettify.css" />
+        <!--show-->
+        <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+        <script src="http://192.168.43.48:9090/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/easyrtc/easyrtc.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/demo_instant_messaging.js"></script>
+        <!--hide-->
+        <!-- Styles used within the demo -->
+        <style type="text/css">
+            #stuffToSend {width:300px;}
+            #sendMessageArea{
+                float:left;
+                width:400px;
+                padding-right:20px;
+            }
+            #sendMessageText{
+                width:100%;
+            }
+            #conversation {
+                height:300px;
+                border:solid 1px gray;
+                overflow-y:scroll;
+            }
+        </style>
+
+
+        <f:metadata>
+            <f:event listener="#{loginBean.verifyExamtaker()}" type="preRenderView" >
+            </f:event>
+        </f:metadata>
+
+        <f:metadata>
+            <f:event listener="#{faceAuthentification2Bean.check_for_date_schedule()}" type="preRenderView" >
+            </f:event>
+        </f:metadata>
+        
+        <f:metadata>
+            <f:event listener="#{resultPageBean.clearAll()}" type="preRenderView" >
+            </f:event>
+        </f:metadata>
+        
+      
+        <style>
+            .options{
+                margin:  50px;
+            }
+            #g{
+                margin-top: 60px;
+            }
+        </style>
+    </h:head>
+    <h:body onload="connect()">
+        <div class="container-fluid">
+             <div class="row" style="background-color: black; color: white">
+               
+                <p><h3 align="center" style=" font-weight: bold; font-size: 27px;">Congratulation</h3></p>
+                
+                
+            </div>
+            <div class="row" style=" margin-top: 150px;">
+              
+                <p align="center" style="font-size: 16px; font-weight: bold;">#{loginBean.userId} you've completed #{faceAuthentification2Bean.examCode} exam</p>
+                <p align="center" style="font-size: 16px; font-weight: bold;">An e-mail will be send to you in 2 days time</p>
+                <p align="center" style="font-size: 16px; font-weight: bold;">Thanks</p>
+                <p align="center" style=" margin-top: 50px"><p:commandLink style="text-decoration: underline; font-size: 16px; font-weight: bold; font-style: italic" action="index?faces-redirect=true" value="Go back to home page"/></p>
+            </div>
+            
+             <div class="row">
+                <!--show-->
+                <div id="sendMessageArea">
+                    <div id="iam">Obtaining ID...</div>
+                    <textarea id="sendMessageText"></textarea>
+                    <div id="otherClients"></div>
+                </div>
+                <div id="receiveMessageArea">
+                    Received Messages:
+                    <div id="conversation"></div>
+                </div>
+
+                <!--hide-->
+                <hr />
+
+               
+
+            </div>
+        </div>
+    </h:body>
+    
+</html>
+

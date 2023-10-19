@@ -1,0 +1,38 @@
+@media (max-width:767px) {
+    .cover-message {
+        padding-top: 40%;
+    }
+    .cover-message > h1 {
+        font-size: 1.8em;
+    }
+    .cover-message > h3.cursive {
+        font-size: 18px;
+    }
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+    .cover-divider {
+        width: 100%;
+    }
+    h2.section-heading {
+        font-size: 25px;
+    }
+    a.join-link {
+        font-size: 16px;
+    }
+    section.cta .cta-content h2 {
+        font-size: 35px;
+    }
+    ._social-links li {
+        display:block;
+        margin-bottom: 30px;
+    }
+    .toTop {
+        display: none;
+    }
+}

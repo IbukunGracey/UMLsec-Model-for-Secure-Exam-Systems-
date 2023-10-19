@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/mystyle.css"/> 
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/easyrtc/easyrtc.css" /> 
+        <!--hide-->
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/demos/css/landing.css" />
+
+
+        <!-- Prettify Code -->
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/prettify/loadAndFilter.js"></script>
+      <!--  <script type="text/javascript" src="http://localhost:9090/demos/js/prettify/jquery.min.js"></script>-->
+
+        <link rel="stylesheet" type="text/css" href="http://192.168.43.48:9090/demos/js/prettify/prettify.css" />
+        <!--show-->
+        <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+        <script src="http://192.168.43.48:9090/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/easyrtc/easyrtc.js"></script>
+        <script type="text/javascript" src="http://192.168.43.48:9090/demos/js/demo_video_only.js"></script>
+        <!--hide-->
+        <!-- Styles used within the demo -->
+        <style type="text/css">
+            #videoDemoContainer {
+                position:relative;
+            }
+            #connectControls {
+                float:left;
+                width:250px;
+                text-align:center;
+                border: 2px solid black;
+            }
+            #otherClients {
+                height:200px;
+                overflow-y:scroll;
+            }
+            #selfVideo {
+                height:225px;
+                width:300px;
+                float:left;
+                border:1px solid gray;
+                margin-left:10px;
+            }
+            #callerVideo {
+                height:225px;
+                width:300px;
+                border:1px solid gray;
+                margin-left:10px;
+            }
+            #acceptCallBox {
+                display:none;
+                z-index:2;
+                position:absolute;
+                top:100px;
+                left:400px;
+                border:red solid 2px;
+                background-color:pink;
+                padding:15px;
+            }
+        </style>
+        <!--show-->
+        
+        <f:metadata>
+            <f:event listener="#{loginBean.verifyProctor()}" type="preRenderView" >
+            </f:event>
+        </f:metadata>
+     </h:head>
+    <h:body>
+     
+      <nav id="mainNav" class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3 style="font-weight: bolder; color: white">E-Exam</h3>
+                    <h:form>
+                        <p:commandLink   style="font-weight: bolder; color: white" value="home" action="proctor_dashboard?faces-redirect=true"/>
+                    </h:form>
+                    <h3 style="font-weight: bolder; color: white" align="center">Proctor Authentification Page</h3>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container-fluid">   
+            <div class="row">
+                <h:form>
+                    <div class="pull-right">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <h4>Logged in as</h4>
+                            </li>
+                            <li>
+                                <p:outputLabel value="#{loginBean.userId}"></p:outputLabel>
+                            </li>
+                            <li>
+                                <p:commandButton   style="font-weight: bolder; color: white" value="logout" action="#{loginBean.logout()}"/> 
+                            </li>
+                        </ul>
+                    </div>
+                    </h:form>
+            </div>
+            
+            
+            <div class="row">
+            
+             
+                   <div id="videoDemoContainer">
+                    <div id="connectControls">
+                        <button id="connectButton" onclick="connect()">Connect</button>
+                        <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
+                        <div id="iam">Not yet connected...</div>
+                        <br />
+                        <strong>Connected users:</strong>
+                        <div id="otherClients"></div>
+                    </div>
+
+                    <div id="videos">
+                        <video autoplay="autoplay" id="selfVideo" class="easyrtcMirror"></video>
+                        <video autoplay="autoplay" id="callerVideo"></video>
+                        <div id="acceptCallBox"> <!-- Should be initially hidden using CSS -->
+                            <div id="acceptCallLabel"></div>
+                            <button id="callAcceptButton" >Accept</button> <button id="callRejectButton">Reject</button>
+                        </div>
+                    </div>
+                </div>
+                <!--hide-->
+                <br style="clear:both;" />
+                <hr />
+
+               
+            </div>
+            
+            <div class="row">
+                <!--show-->
+                <div id="sendMessageArea">
+                    <div id="iam2">Obtaining ID...</div>
+                    <textarea id="sendMessageText"></textarea>
+                    <div id="otherClients2"></div>
+                </div>
+                <div id="receiveMessageArea">
+                    Received Messages:
+                    <div id="conversation"></div>
+                </div>
+
+                <!--hide-->
+                <hr />
+
+               
+
+            </div>
+            
+            
+           
+               <!-- <div class="row" style="margin-top: 50px">
+                    <div class="col-md-offset-3">
+                         <p><img src="images/logo/supervised_exam.jpg" height="150px" width="150px"><span></span></img></p>  
+                        <p:commandLink id="add"  value="supervise exam" action="supervise?faces-redirect=true" style=" font-size: 14px; font-weight: bold; color: black"/>
+                    </div>
+               </div>-->
+            
+            <div class="row" style="margin-top: 30px" align="center">
+                <div class="col-md-12">
+                     TeamViewer Logo (generated at https://www.teamviewer.com)
+<div style="position:relative; width:120px; height:60px;">
+    <a href="assets/app/TeamViewer_Setup.exe"  style="text-decoration:none;">
+        <img src="images/logo/teamviewerimage.png" alt="TeamViewer for Remote Support" title="TeamViewer for Remote Support" border="0" width="120" height="60" ></img>
+    <span style="position:absolute; top:25.5px; left:50px; display:block; cursor:pointer; color:#424242; font-family:Arial; font-size:10px; line-height:1.2em; font-weight:bold; text-align:center; width:65px;">
+        Remote Support</span>
+  </a>
+</div>
+                </div>
+            </div>
+           
+           
+           
+           
+        </div>
+    </h:body>
+</html>
+

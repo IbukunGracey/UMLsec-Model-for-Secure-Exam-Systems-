@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_w0iZsAfwEeeLMda-l_k7kQ" name="RootElement">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_xS6XwAfwEeeLMda-l_k7kQ" name="Activity1"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3E5kgAfwEeeLMda-l_k7kQ" name="ExamTaker">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_hoiz0Af0EeeLMda-l_k7kQ" name="ExamTakerID" visibility="private" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_mftXEAf0EeeLMda-l_k7kQ" name="PhotoID" visibility="private" type="_HfZLkAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qrsPUAf0EeeLMda-l_k7kQ" name="PassportPhoto" visibility="private" type="_1R1HkAf0EeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3qyf0AfwEeeLMda-l_k7kQ" name="Person">
+    <generalization xmi:type="uml:Generalization" xmi:id="_qi-DEAfyEeeLMda-l_k7kQ" general="_3E5kgAfwEeeLMda-l_k7kQ"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_GREsYAf0EeeLMda-l_k7kQ" general="_0AgUgAfyEeeLMda-l_k7kQ"/>
+    <generalization xmi:type="uml:Generalization" xmi:id="_OBy2sAf0EeeLMda-l_k7kQ" general="_yHrKoAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rCNZQAfxEeeLMda-l_k7kQ" name="Name" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_0ShuEAfxEeeLMda-l_k7kQ" name="Phone" visibility="public" type="_HfZLkAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UqU70AfyEeeLMda-l_k7kQ" name="EmailAddress" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_aSpPMAfyEeeLMda-l_k7kQ" name="HomeAddress" visibility="public" type="_SS1gAAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_I8IZ4AfzEeeLMda-l_k7kQ" name="address" type="_7Gzo0AfyEeeLMda-l_k7kQ" association="_I8FWkAfzEeeLMda-l_k7kQ"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_vhFYUAfxEeeLMda-l_k7kQ" name="String"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_HfZLkAfyEeeLMda-l_k7kQ" name="Int"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_SS1gAAfyEeeLMda-l_k7kQ" name="Address"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_1R1HkAf0EeeLMda-l_k7kQ" name="Bitmap"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_6JTQAAf4EeeLMda-l_k7kQ" name="Date"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yHrKoAfyEeeLMda-l_k7kQ" name="Proctor">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WU-mIAf6EeeLMda-l_k7kQ" name="ProctorRegID" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_aKxL8Af6EeeLMda-l_k7kQ" name="CenterName" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0AgUgAfyEeeLMda-l_k7kQ" name="Assessor">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_df9mIAf6EeeLMda-l_k7kQ" name="AssessorID" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7Gzo0AfyEeeLMda-l_k7kQ" name="Address">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_RWU_AAfzEeeLMda-l_k7kQ" name="Street" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UCEzkAfzEeeLMda-l_k7kQ" name="City" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_WfQnsAfzEeeLMda-l_k7kQ" name="State" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Y4wOoAfzEeeLMda-l_k7kQ" name="Country" visibility="public" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_I8FWkAfzEeeLMda-l_k7kQ" memberEnd="_I8IZ4AfzEeeLMda-l_k7kQ _I8IZ4QfzEeeLMda-l_k7kQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_I8HLwAfzEeeLMda-l_k7kQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_I8HLwQfzEeeLMda-l_k7kQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_I8IZ4QfzEeeLMda-l_k7kQ" name="person" type="_3qyf0AfwEeeLMda-l_k7kQ" association="_I8FWkAfzEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_GRd4gAf1EeeLMda-l_k7kQ" name="IExamTaker&lt;ExamTaker>">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_J6-q8Af3EeeLMda-l_k7kQ" name="CreateAccount(ExamTaker examTaker)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_hPHqYAf4EeeLMda-l_k7kQ" name="TakeExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_o0Lh0Af5EeeLMda-l_k7kQ" name="ScheduleExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_rq0-0Af5EeeLMda-l_k7kQ" name="EnrollForBiometric(Bitmap photo)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qKhMMAgFEeeLMda-l_k7kQ" name="TakeSystemTest()"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_GRCv0Af3EeeLMda-l_k7kQ" name="ExamTakerService">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yalbYAf5EeeLMda-l_k7kQ" name="CreateAccount(ExamTaker examTaker)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_-pwuAAf5EeeLMda-l_k7kQ" name="TakeExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GJJQsAf6EeeLMda-l_k7kQ" name="ScheduleExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_JXkUgAf6EeeLMda-l_k7kQ" name="EnrollForBiometric(Bitmap facePhoto)"/>
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_mAGaMAgFEeeLMda-l_k7kQ" name="SystemProcess"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_GRUcoAf3EeeLMda-l_k7kQ" client="_GRd4gAf1EeeLMda-l_k7kQ" supplier="_GRCv0Af3EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_PbK9EAf3EeeLMda-l_k7kQ" name="IService&lt;T>">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_R_DPEAf3EeeLMda-l_k7kQ" name="CreateAccount(T t)"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_DkMSkAf4EeeLMda-l_k7kQ" client="_w0iZsAfwEeeLMda-l_k7kQ" supplier="_GRd4gAf1EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_RasIUAf4EeeLMda-l_k7kQ" name="&lt;contains>" client="_GRd4gAf1EeeLMda-l_k7kQ" supplier="_3E5kgAfwEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_t1Z1cAf4EeeLMda-l_k7kQ" name="Exam">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vxLloAf4EeeLMda-l_k7kQ" name="ID" visibility="public" type="_HfZLkAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_x3lRcAf4EeeLMda-l_k7kQ" name="Title" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_fPSEIAf5EeeLMda-l_k7kQ" name="Date" type="_6JTQAAf4EeeLMda-l_k7kQ"/>
+    <nestedClassifier xmi:type="uml:DataType" xmi:id="_GZt4wAf5EeeLMda-l_k7kQ" name="Date"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_iKoa8Af5EeeLMda-l_k7kQ" name="&lt;contains>" client="_GRd4gAf1EeeLMda-l_k7kQ" supplier="_t1Z1cAf4EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ncNM0Af6EeeLMda-l_k7kQ" name="IProctorService&lt;Proctor>">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QcEckAf7EeeLMda-l_k7kQ" name="CreateAccount(Proctor proctor)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GiGNIAgDEeeLMda-l_k7kQ" name="Supervise(Exam exam)"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_xubDgAf6EeeLMda-l_k7kQ" client="_PbK9EAf3EeeLMda-l_k7kQ" supplier="_ncNM0Af6EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_yKA94Af7EeeLMda-l_k7kQ" name="&lt;contains>" client="_ncNM0Af6EeeLMda-l_k7kQ" supplier="_t1Z1cAf4EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Ng7rsAf8EeeLMda-l_k7kQ" name="&lt;contains>" client="_ncNM0Af6EeeLMda-l_k7kQ" supplier="_yHrKoAfyEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jGPAMAf8EeeLMda-l_k7kQ" name="ProctorService">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_njcyYAf8EeeLMda-l_k7kQ" name="CreateAccount(Proctor proctor)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_26L2YAf9EeeLMda-l_k7kQ" name="CreateExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_5gfKQAf9EeeLMda-l_k7kQ" name="SetExamWindow()"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_m9ZfAAf8EeeLMda-l_k7kQ" client="_ncNM0Af6EeeLMda-l_k7kQ" supplier="_jGPAMAf8EeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="__mZ_oAf9EeeLMda-l_k7kQ" name="Application">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_MZQAAAf-EeeLMda-l_k7kQ" name="IService&lt;T>"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_P48aAAf-EeeLMda-l_k7kQ" name="ExamTakerService"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_TkznwAf-EeeLMda-l_k7kQ" name="ProctorService"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_YU6ZYAgBEeeLMda-l_k7kQ" name="&lt;creates instances>" client="__mZ_oAf9EeeLMda-l_k7kQ" supplier="_GRCv0Af3EeeLMda-l_k7kQ"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_dYxU0AgBEeeLMda-l_k7kQ" name="&lt;creates instances>" client="__mZ_oAf9EeeLMda-l_k7kQ" supplier="_jGPAMAf8EeeLMda-l_k7kQ"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_z8dnYAgFEeeLMda-l_k7kQ" name="&lt;creates instances>" client="__mZ_oAf9EeeLMda-l_k7kQ" supplier="_ml-EMAgBEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ml-EMAgBEeeLMda-l_k7kQ" name="IAssessorService&lt;Assessor>">
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_jj6hEAgEEeeLMda-l_k7kQ" name="SytemProcess"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_40lwwAgBEeeLMda-l_k7kQ" name="CreateAccount(Assessor assessor)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_-6bGkAgBEeeLMda-l_k7kQ" name="CreateExam(Exam exam)"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_CrngQAgCEeeLMda-l_k7kQ" name="SetExamWindow()"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_cpwAwAgDEeeLMda-l_k7kQ" name="Register(Organization org"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ZZn3UAgEEeeLMda-l_k7kQ" name="CaptureFace(Bitmap photo)"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hUss8AgDEeeLMda-l_k7kQ" name="Organization">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_kHfksAgDEeeLMda-l_k7kQ" name="OrganizationID" type="_HfZLkAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_nFQ9YAgDEeeLMda-l_k7kQ" name="OrganizationName" type="_vhFYUAfxEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qZfuQAgDEeeLMda-l_k7kQ" name="Address" type="_SS1gAAfyEeeLMda-l_k7kQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_vvwBQggDEeeLMda-l_k7kQ" name="address" type="_7Gzo0AfyEeeLMda-l_k7kQ" association="_vvvaMAgDEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_vvvaMAgDEeeLMda-l_k7kQ" memberEnd="_vvwBQggDEeeLMda-l_k7kQ _vvwBQwgDEeeLMda-l_k7kQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vvwBQAgDEeeLMda-l_k7kQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vvwBQQgDEeeLMda-l_k7kQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_vvwBQwgDEeeLMda-l_k7kQ" name="organization" type="_hUss8AgDEeeLMda-l_k7kQ" association="_vvvaMAgDEeeLMda-l_k7kQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_0_fckAgDEeeLMda-l_k7kQ" name="&lt;contains>" client="_ml-EMAgBEeeLMda-l_k7kQ" supplier="_hUss8AgDEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_9q2qMAgDEeeLMda-l_k7kQ" name="&lt;contians>" client="_ml-EMAgBEeeLMda-l_k7kQ" supplier="_0AgUgAfyEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_EGOyMAgEEeeLMda-l_k7kQ" name="&lt;contains>" client="_ml-EMAgBEeeLMda-l_k7kQ" supplier="_w0iZsAfwEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Realization" xmi:id="_SUXE0AgEEeeLMda-l_k7kQ" client="_xubDgAf6EeeLMda-l_k7kQ" supplier="_ml-EMAgBEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_nBlh0AgEEeeLMda-l_k7kQ" name="SystemProcess">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_G_RmcAgFEeeLMda-l_k7kQ" name="PromptUser()"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_KLx-sAgFEeeLMda-l_k7kQ" name="ValidateInformation()"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_T65IUAgFEeeLMda-l_k7kQ" name="StoreProfile"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_VqZXEAgFEeeLMda-l_k7kQ" name="RejectAccountCreation"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_e0XzUAgFEeeLMda-l_k7kQ" name="ValidateSystemTest()"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Pob0oAgFEeeLMda-l_k7kQ" name="uses" client="_ml-EMAgBEeeLMda-l_k7kQ" supplier="_w0iZsAfwEeeLMda-l_k7kQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_h0Qr4AgFEeeLMda-l_k7kQ" client="_w0iZsAfwEeeLMda-l_k7kQ" supplier="_nBlh0AgEEeeLMda-l_k7kQ"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_c2Gf4AfxEeeLMda-l_k7kQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_c2HuAAfxEeeLMda-l_k7kQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>

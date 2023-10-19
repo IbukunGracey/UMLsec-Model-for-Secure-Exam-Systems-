@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+    </h:head>
+    <h:body>
+        <nav id="mainNav" class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3 style="font-weight: bolder; color: white">E-Exam</h3>
+                    <h:form>
+                        <p:commandLink   style="font-weight: bolder; color: white" value="home" action="index?faces-redirect=true"/>
+                    </h:form>
+                </div>
+            </div>
+        </nav>
+
+        <section class="container">
+            <div class="row">
+                <!--
+                <div class="col-md-offset-1">
+                    <div class="alert alert-info text-center alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <p></p>
+                    </div>
+                -->
+
+               
+                    <h:form>
+                        <p:growl id="growl" for="mess" showDetail="true" life="9000" />
+                        <div class="container">
+                        <div class="row">
+                        <div class="col-md-6">
+                        <p:photoCam widgetVar="pc" listener="#{checkForWebCam.oncapture}" update="photo" style="border-style: solid;" />
+                        </div>
+                            <div class="col-md-6">
+                        <p:outputPanel id="photo" style="border-style: solid; height: 240px; width: 320px;">
+                            <p:graphicImage value="images/photocam/examtaker/#{checkForWebCam.filename}.jpeg" rendered="#{not empty checkForWebCam.filename}"/>
+                        </p:outputPanel>
+                                
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1" style="margin-top: 10px">
+                        <p:commandButton id="bb" type="button" value="Capture" onclick="PF('pc').capture()" />
+                        </div>
+                            <div class="col-md-1" style="margin-top: 10px">
+                                <p:commandButton value="done" action="#{checkForWebCam.gotoRegistrationPage}" update="growl"/>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    </h:form>
+                
+            </div>
+        </section>
+
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
+      
+        <script>
+            /*
+            function success() {
+                $('.alert').show('slow');
+                $('.alert p').html('Webcam detected! You\'re eligible to continue with the resgistration.');
+            }
+            function error() {
+                $('.alert').show('slow');
+                $('.alert p').html('No webcam detected! You\'re not eligible to continue with the resgistration.');
+                $('#bb').attr("disabled","disabled");
+              //  $('input, button').attr('disabled', '');
+            }
+            if(navigator.getUserMedia) {
+                navigator.getUserMedia({ video: true, audio: false }, success, error);
+                success();
+            } else {
+               error();
+            }
+            */
+        </script>
+    </h:body>
+</html>
+

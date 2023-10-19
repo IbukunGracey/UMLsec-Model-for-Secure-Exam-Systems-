@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script src="socket.js"></script>
+    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="chatbox.css">
+    <script>
+        $.chat = {
+            username: 'Olayemi2',
+            receiverHandle: 'Olayemi1'
+        };
+    </script>
+</head>
+<body>
+    
+    <div class="box box-info direct-chat chat-box chat-popup direct-chat-warning" style="z-index: 100000;position: fixed;bottom: 0px;right: 10px;height: 322px;width: 300px;border: 1px solid rgba(29, 49, 91, .3);">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chat Box</h3>
+            <span class="pull-right"><small></small></span>
+        </div>
+        <div class="box-body" id="chatBody">
+            <div class="direct-chat-messages">
+                
+            </div>
+        </div>
+        <div class="box-footer">
+            <form action="#" id="sendMessage" method="post">
+                <div class="input-group">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control"><span class="input-group-btn">
+                    <button type="submit" class="btn btn-warning btn-flat">Send</button></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="chat.js"></script>
+    <script>
+        $('div.direct-chat-messages').animate({ scrollTop: $('div.direct-chat-messages').prop("scrollHeight")}, 1000);
+    </script>
+</body>
+</html>

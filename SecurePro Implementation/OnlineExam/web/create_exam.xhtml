@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/mystyle.css"/> 
+          <f:metadata>
+              <f:event listener="#{loginBean.verifyAssessor()}" type="preRenderView" >
+             <p:ajax event="tab"></p:ajax>
+            </f:event>
+        </f:metadata>
+      
+    </h:head>
+    <h:body>
+
+        <div class="row" style="margin-bottom: 100px">
+            <div class="col-md-12">
+                <h3 align="center">EXAM CREATION PAGE</h3>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-inverse col-md-12" role="navigation" >
+                <div>
+                    <ul class="nav navbar-nav navbar-right" style="font-weight: bold; font-size: 15px">
+                        <li ><p:commandLink   style="font-weight: bolder; color: white" value="home" action="assessor_dashboard?faces-redirect=true"/></li>
+                        <li><p:commandLink   style="font-weight: bolder; color: white" value="assign examtaker to proctor" action="#"/></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <h:form>
+                    <div class="pull-right">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <h4>Logged in as</h4>
+                            </li>
+                            <li>
+                                <p:outputLabel value="#{loginBean.userId}"></p:outputLabel>
+                            </li>
+                            <li>
+                                <p:commandButton   style="font-weight: bolder; color: white" value="logout" action="#{loginBean.logout()}"/> 
+                            </li>
+                        </ul>
+                    </div>
+                </h:form>
+            </div>
+
+            <div class="row">
+
+                <h:form id="loginForm">
+                    <p:growl id="growl" for="mess" showDetail="true" life="6000" />
+                    <p:panel header="please fill up the exam details">
+                        <!---<h:panelGrid columns="3" style="width: 70%; height: 200px;" cellpadding="5">-->
+                        <div class="container">
+
+                           <!-- <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-2">
+                                    <h:outputLabel for="examid" value="ExamId *" />
+                                </div>
+                                <div class="col-md-3">
+                                    <p:inputText id="examid" required="true" value="#" placeholder="enter a examid e.g C1212" style=" width: 450px"/>
+                                </div>
+                                <div class="co-md-3">
+                                    <p:message for="examid"></p:message>
+                                </div>
+                            </div>-->
+
+                            <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-2">
+                                    <h:outputLabel for="examcode" value="Exam Code *" />
+                                </div>
+                                <div class="col-md-3">
+                                    <p:inputText id="examcode" required="true"  requiredMessage="exam code is required" validatorMessage="invalid exam code" value="#{createexamBean.examCode}" placeholder="enter a examcode e.g CSC427" style=" width: 450px">
+                                    <f:validateRegex pattern="[A-Z]{3}[1-9]{3}"/>
+                                    </p:inputText>
+                                </div>
+                                <div class="co-md-3">
+                                    <p:message for="examcode"></p:message>
+                                </div>
+                            </div>
+                           
+                           
+                           <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-2">
+                                    <h:outputLabel for="examtitle" value="Exam Title *" />
+                                </div>
+                                <div class="col-md-5">
+                                    <p:inputText id="examtitle" required="true" value="#{createexamBean.examTitle}" placeholder="enter a exam title e.g Organization of Programming" style=" width: 450px"/>
+                                </div>
+                                <div class="co-md-3">
+                                    <p:message for="examtitle"></p:message>
+                                </div>
+                            </div>
+
+                           
+
+                            <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-2">
+                                    <h:outputLabel for="examduration" value="Exam Duration *" />
+                                </div>
+                                <div class="col-md-3">
+                                    <p:inputText id="examduration" required="true" value="#{createexamBean.duration}" requiredMessage="durationis required" validatorMessage="invalid duration" placeholder="enter a exam duration e.g mm:ss" style=" width: 450px">
+                                    <f:validateRegex pattern="[0-9]{2}:[0-9]{2}"/>
+                                    </p:inputText>
+                                </div>
+                                <div class="co-md-3">
+                                    <p:message for="examduration"></p:message>
+                                </div>
+                            </div>
+
+                            <!--  </h:panelGrid>-->
+                            <div class="row">
+                                <div class="col-md-offset-2">
+                                    <p:commandButton value="done" action="#{createexamBean.createExamDetails()}" icon="fa fa-user" style="width: 100px;" update="growl, loginForm" />
+                                </div>
+                            </div>
+                        </div>
+                    </p:panel>
+                </h:form>
+</div>
+            
+            <div class="row">
+                <h:form id="loginForm2">
+                    <p:growl id="growl2" for="mess2" showDetail="true" life="6000" />
+                    <p:panel header="QUESTIONS SETUP">
+                        <!---<h:panelGrid columns="3" style="width: 70%; height: 200px;" cellpadding="5">-->
+                        <div class="container">
+
+                           <div class="row">
+                                <div class="col-md-4">
+                                    <p:commandButton value="Reload Courses" action="#{createexamBean.reloadCourses()}"  style="width: 100px;" update="menu, growl2" />
+                                </div>
+                               
+                               <div class="col-md-2">
+                                    <h:outputLabel  for="menu" value="Select Course: *" />
+                                </div>
+                                <div class="col-md-3">
+                                    <p:selectOneMenu  placeholder="select course" id="menu" style=" width: 250px" required="true" value="#{createexamBean.examCode2}" >
+                                        <f:selectItem  itemLabel="select course" itemValue=""/>
+                                        <f:selectItems value="#{createexamBean.categoryExamName}"  />
+                                       <!-- <p:ajax event="itemSelect" listener="#" update="ds" />-->
+                                    </p:selectOneMenu>
+                                </div>
+                                <div class="col-md-3">
+                                    <p:message for="menu"></p:message>
+                                </div>
+                            </div>
+                            
+                            <br/>
+                            <br/>
+                            <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-2">
+                                    <h:outputLabel id="counter"  value="#{createexamBean.counter}" />
+                                </div>
+                                <div class="col-md-6">
+                                    <p:inputTextarea id="question_body" required="true" value="#{createexamBean.question_body}" placeholder="enter your questions here" cols="100" rows="5"></p:inputTextarea>                                </div>
+                                <div class="co-md-3">
+                                    <p:message for="question_body"></p:message>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="row" style="margin-top: 40px; margin-bottom: 10px;">
+                                <div class="col-md-offset-2 col-md-4">
+                                    <h:outputLabel for="a" value="A:"></h:outputLabel>
+                                    <p:inputText id="a" required="true" value="#{createexamBean.optionA}" placeholder="please enter option A here" style="width: 250px"></p:inputText>
+                                    <p:message for="a"></p:message>
+                            </div>
+                                
+                                <div class="col-md-6">
+                                    <h:outputLabel for="b" value="B:"></h:outputLabel>
+                                    <p:inputText id="b" required="true" value="#{createexamBean.optionB}" placeholder="please enter option B here" style="width: 250px"></p:inputText>
+                                    <p:message for="b"></p:message>
+                            </div>
+                             </div>
+
+                            
+                            <div class="row" style="margin-bottom: 7px">
+                                <div class="col-md-offset-2 col-md-4">
+                                    <h:outputLabel for="c" value="C:"></h:outputLabel>
+                                    <p:inputText id="c" required="true" value="#{createexamBean.optionC}" placeholder="please enter option C here" style="width: 250px"></p:inputText>
+                                    <p:message for="c"></p:message>
+                            </div>
+                                
+                                <div class="col-md-6">
+                                    <h:outputLabel for="d" value="D:"></h:outputLabel>
+                                    <p:inputText id="d" required="true"  value="#{createexamBean.optionD}" placeholder="please enter option D here" style="width: 250px"></p:inputText>
+                                    <p:message for="d"></p:message>
+                            </div>
+                             </div>
+                            
+                            <div class="row" style="margin-top: 10px">
+                                <div class="col-md-12" align="center">
+                                    <h:outputLabel for="correctanswer" value="Correct option: e.g D"></h:outputLabel>
+                                    <p:inputText id="correctanswer" required="true" value="#{createexamBean.correctOption}" placeholder="please enter the correct option in word" style="width: 350px"></p:inputText>
+                                    <p:message for="correctanswer"></p:message>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="row" style="margin-bottom: 7px; margin-top: 10px">
+                                <div class="col-md-offset-5">
+                                    <p:commandButton value="done" action="#{createexamBean.setExamQuestions()}" icon="fa fa-user" style="width: 100px;" update="growl2, loginForm2, counter" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </p:panel>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <script src="assets/js/jquery.min.js"></script>
+    </h:head>
+    <h:body>
+        <nav id="mainNav" class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <h3 style="font-weight: bolder; color: white">E-Exam</h3>
+                    <h:form>
+                        <p:commandLink   style="font-weight: bolder; color: white" value="home" action="index?faces-redirect=true"/>
+                    </h:form>
+                </div>
+            </div>
+        </nav>
+
+        <section class="container">
+
+            <div class="row">
+                <div class="col-md-offset-2 ">
+                    <h:form id="loginForm" style="margin-top: 20px" enctype="multipart/form-data">
+                        <p:growl id="message" showDetail="true" life="3000"/>
+                        <p:panel header="please fill up the required boxes" id="panel">
+                            <div class="container">
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="email" value="Email *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:inputText id="email" required="true"  placeholder="enter email" style=" width: 250px"/>
+                                        </div>
+                                        <div class="co-md-1">
+                                            <p:message for="email"></p:message>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="firstname" value="Firstname *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:inputText id="firstname" required="true"  placeholder="enter firstname" style=" width: 250px"/>
+                                        </div>
+                                        <div class="col-md-1"><p:message for="firstname"></p:message></div>
+                                    </div>
+                                    
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="lastname" value="Lastname *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:inputText id="lastname" required="true"  placeholder="enter lastname" style=" width: 250px"/>
+                                        </div>
+                                        <div class="col-md-1"><p:message for="lastname"></p:message></div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="address" value="Address *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:inputText id="address" required="true"  placeholder="enter email" style=" width: 250px"/>
+                                        </div>
+                                        <div class="col-md-1"><p:message for="address"></p:message></div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="phonenumber" value="Phone Number *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:inputText id="phonenumber" required="true"  placeholder="enter email" style=" width: 250px"/>
+                                        </div>
+                                        <div class="col-md-1"><p:message for="phonenumber"></p:message></div>
+                                    </div>
+
+                                    <div class="row" style="margin-bottom: 7px">
+                                        <div class="col-md-2">
+                                            <h:outputLabel for="password" value="Password *" />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p:password id="password"  placeholder="enter password" style=" width: 250px"/>
+                                        </div>
+                                        <div class="col-md-1"><p:message for="password"></p:message></div>
+                                    </div>
+
+                                    <!--  </h:panelGrid>-->
+                                    <div class="row">
+                                        <div class="col-md-offset-2">
+                                        <p:commandButton value="register" icon="fa fa-user" style="width: 100px;"  />
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </p:panel>
+                    </h:form>
+
+                </div>
+            </div>  
+
+        </section>
+
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/reg.js"></script>
+    </h:body>
+</html>
+

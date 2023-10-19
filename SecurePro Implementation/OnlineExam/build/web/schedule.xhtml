@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+        <!--<link rel="stylesheet" href="assets/css/mystyle.css"/> -->
+        <style>
+            html,body{
+            background: url("assets/img/p2.jpeg");
+            background-size: cover;
+            }
+        </style>
+        <f:metadata>
+            <f:event listener="#{loginBean.verifyExamtaker()}" type="preRenderView" >
+                <p:ajax event="tab"></p:ajax>
+            </f:event>
+        </f:metadata>
+
+    </h:head>
+    <h:body>
+
+        <div class="row" style="margin-bottom: 50px; color: white; font-weight: bold;">
+            <div class="col-md-12">
+                <h3 align="center" >SCHEDULE YOUR EXAM DATE AND TIME</h3>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="navbar navbar-nav col-md-12" role="navigation"  >
+                <div>
+                    <ul class="nav navbar-nav navbar-right" style="font-weight: bold; font-size: 15px">
+                        <li ><p:commandLink   style=" text-decoration: underline; font-style: italic; font-weight: bolder; color: white" value="home" action="examtaker_dashboard?faces-redirect=true"/></li>
+                       
+                        <li><p:commandLink   style="text-decoration: underline; font-style: italic;font-weight: bolder; color: white" value="enroll for biometric" action="#"/></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row" style=" font-weight: bold; font-size: 13px; color: white;">
+                <h:form>
+                    <div class="pull-right">
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <h4>Logged in as</h4>
+                            </li>
+                            <li>
+                                <p:outputLabel value="#{loginBean.userId}"></p:outputLabel>
+                            </li>
+                            <li>
+                                <p:commandButton   style="font-weight: bolder; color: white" value="logout" action="#{loginBean.logout()}"/> 
+                            </li>
+                        </ul>
+                    </div>
+                </h:form>
+            </div>
+
+            <div class="row">
+                <h:form id="loginForm">
+                    <p:growl id="growl" for="mess" showDetail="true" life="9000" />
+                    <p:panel header="please fill up the exam details">
+                        <!---<h:panelGrid columns="3" style="width: 70%; height: 200px;" cellpadding="5">-->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <h:outputLabel  for="menu" value="Select Course: *" />
+                                </div>
+                                <div class="col-md-3">
+                                    <p:selectOneMenu  placeholder="select course" id="menu" style=" width: 250px" required="true" value="#{scheduleBean.examId}" >
+                                        <f:selectItem  itemLabel="select course" itemValue=""/>
+                                        <f:selectItems value="#{scheduleBean.categoryExamName}"  />
+                                       <!-- <p:ajax event="itemSelect" listener="#" update="ds" />-->
+                                    </p:selectOneMenu>
+                                </div>
+                                <div class="col-md-3">
+                                    <p:message for="menu"></p:message>
+                                </div>
+                            </div>
+                            
+                           <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-2">
+                                  <h:outputLabel for="date" value="Enter Date : e.g 02:05:2018 " />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:inputText id="date" required="true" requiredMessage="date is requied"  validatorMessage="invalid date" value="#{scheduleBean.date}" placeholder="dd:mm:yyyy e.g 02:05:2018" style=" width: 250px">
+                                            <f:validateRegex pattern="[0-9]{2}:[0-9]{2}:[0-9]{4}"/>
+                                    </p:inputText>
+                                    </div>
+                                    <div class="col-md-3"><p:message for="date"></p:message></div>
+                                </div>
+                            
+                            
+                            <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-2">
+                                  <h:outputLabel for="time" value="Enter Time : e.g 01:30 " />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:inputText id="time" required="true"  value="#{scheduleBean.time}" requiredMessage="time is required" validatorMessage="invalid time" placeholder="hh:mm e.g 01:30" style=" width: 250px">
+                                         <f:validateRegex pattern="[0-9]{2}:[0-9]{2}"/>
+                                        </p:inputText>
+                                    </div>
+                                    <div class="col-md-3"><p:message for="time"></p:message></div>
+                                </div>
+                            
+                            
+                            <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-offset-2">
+                                        <p:commandButton value="done" update="loginForm, growl" action="#{scheduleBean.scheduleExam()}" icon="fa fa-check-square" style="width: 100px;"/>
+                                    </div>
+                                </div>
+                        </div>
+                    </p:panel>
+                </h:form>
+            </div>
+
+
+
+
+        </div>
+    </h:body>
+</html>
+

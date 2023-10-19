@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <meta charset="utf-8"/>
+        <title>E-Exam</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/responsive.css"/>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css"/>
+       <!-- <link rel="stylesheet" href="assets/css/mystyle.css"/> -->
+
+        <style>      
+            html,body{
+                margin: 0;
+                padding: 0;
+                background: url("assets/img/j3.jpeg");
+                background-size: cover;
+            }
+
+            #footer{
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                color: whitesmoke;
+                font-weight: bold;
+                text-align: center;
+            }
+            
+        </style>
+    </h:head>
+    <h:body>
+        <nav id="mainNav" class="navbar navbar-default" role="navigation">
+            <div class="container ">
+                <div class="navbar-header">
+                    <h2 style="font-weight: bolder; color: white">A Secured CBT E-Exam</h2>
+                    <!--<h3 style="font-weight: bolder; color: white">E-Exam</h3>
+                    <h:form>
+                    <p:commandLink   style="font-weight: bolder; color: white" value="home" action="index?faces-redirect=true"/>
+                    </h:form>-->
+
+                </div>
+            </div>
+        </nav>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-md-offset-2">
+                    <h:form id="loginForm" prependId="false">
+                        <p:growl id="message" for="message" showDetail="true" life="9000"/>
+                        <p:panel header="please fill up the required boxes">
+
+                            <!--<h:panelGrid columns="3" style="width: 70%; height: 200px;" cellpadding="5">-->
+                            <div class="container">
+                                <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-2">
+                                        <h:outputLabel for="userid" value="UserId *" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:inputText id="userid" required="true"  value="#{loginBean.userId}" placeholder="please enter your id" style=" width: 250px"/>
+                                    </div>
+                                    <div class="col-md-4"><p:message for="userid"></p:message></div>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-2">
+                                        <h:outputLabel for="password" value="Password *" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:password id="password"  placeholder="enter password" value="#{loginBean.password}" style=" width: 250px"/>
+                                    </div>
+                                    <div class="col-md-4"><p:message for="password"></p:message></div>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-2">
+                                        <h:outputLabel for="menu" value="Select One: *" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:selectOneMenu id="menu" style=" width: 250px" value="#{loginBean.user_reg1}" required="true">
+                                            <f:selectItem itemLabel="Select One" itemValue="" />
+                                            <f:selectItem itemLabel="Exam-taker" itemValue="examtaker" />
+                                            <f:selectItem itemLabel="Assessor" itemValue="assessor" />
+                                            <f:selectItem itemLabel="Proctor" itemValue="proctor" />
+                                        </p:selectOneMenu></div>
+                                    <div class="col-md-4">
+                                        <p:message for="menu"></p:message>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom: 7px">
+                                    <div class="col-md-offset-2">
+                                        <p:commandButton value="login" update="message, loginForm" action="#{loginBean.login()}" icon="fa fa-check-square" style="width: 100px;"/>
+                                    </div>
+                                </div>
+                                <!--</h:panelGrid>-->
+                            </div>
+                        </p:panel>
+                    </h:form>
+                </div>
+                <hr/>
+                <div class="row" style="margin-top: 40px;">
+                    <div class="text-center">
+                        <p style="color: white; font-weight: bolder">Don't have an account?</p>
+                        <h:form>
+                            <div class="container">
+                                <div class="row" style="margin-bottom: 7px">
+                                    <div class=" col-md-offset-3 col-md-2">
+                                        <h:outputLabel for="menuu" style="color: white; font-weight: bolder" value="Register as: *" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p:selectOneMenu id="menuu" style=" width: 300px" value="#{loginBean.user_reg}" required="true">
+                                            <f:selectItem itemLabel="Exam-taker" itemValue="examtaker-reg" />
+                                            <f:selectItem itemLabel="Assessor" itemValue="assessor-reg" />
+                                            <f:selectItem itemLabel="Proctor" itemValue="proctor-reg" />
+                                        </p:selectOneMenu> </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="text-center">
+                                        <p:commandButton value="create" icon="fa fa-user" style="width: 100px;"  action="#{loginBean.gotoRegistrationPage}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="row" style=" margin-top: 20px; color: white; font-size: 15px">
+                <div class="col-md-12">
+                    <p align="center" style=" font-weight: bolder; font-size: 17px">NOTE!!! (Application prerequisite)</p>
+                    <p align="center">Examtakers should have TeamViewerQS.exe from TeamViewer.com website
+                        <br/>installed on his/her system or you can easily download it from this app.</p>
+                    <p align="center">Assesors should also have TeamViewer_Setup.exe from TeamViewer.com website
+                        <br/>installed on his/her system or you can easily download it from this app.</p>
+                </div>
+            </div>
+            
+            
+        </section>
+
+
+                
+        <marquee id="footer">A secured cbt E-exam Copywright &copy;2018 </marquee>
+                
+           
+        
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/login.js"></script>
+    </h:body>
+</html>
+
